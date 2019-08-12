@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "pure-circle-progress": [
+        "dist/pure-circle-progress"
+      ],
+      "pure-circle-progress/*": [
+        "dist/pure-circle-progress/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

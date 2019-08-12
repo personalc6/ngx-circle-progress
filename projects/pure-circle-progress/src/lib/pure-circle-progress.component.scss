@@ -1,0 +1,102 @@
+$black1: #161616;
+$black7: #e6eae7;
+$black4: #7f8982;
+$black8: #f0f1f0;
+$black2: #444e47;
+$black5: #acb7b1;
+$black6: #cbd1cd;
+$black3: #636d67;
+$black9: #f9f9f9;
+$white: #ffffff;
+$green1: #00d84d;
+$green2: #00e451;
+$green3: #7ff1a8;
+$green4: #d9fbe5;
+$blue1: #0076ec;
+$blue2: #178bff;
+$blue3: #8bc5ff;
+$blue4: #e2f0ff;
+$status_green: #00e451;
+$status_red: #ff5953;
+$status_blue: #06beff;
+$status_yellow: #ffbd31;
+$gray: #a3aba6;
+
+.progress {
+    position: relative;
+    display: inline-block;
+
+    .circle {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: background-color 1s;
+
+        &, & .mask { background-color: #ffd5d4; }
+        & .mask .fill { background-color: $status_red; }
+
+        &.red, &.red .mask { background-color: #ffd5d4; }
+        &.red .mask .fill { background-color: $status_red; }
+
+        &.yellow, &.yellow .mask { background-color: #ffeecb; }
+        &.yellow .mask .fill { background-color: $status_yellow; }
+
+        &.green, &.green .mask { background-color: $green4; }
+        &.green .mask .fill { background-color: $green2; }
+
+        &.zero, &.zero .mask { background-color: #F0F1F0; }
+        &.zero .mask .fill { background-color: #F0F1F0; }
+
+        .mask, .fill {
+            position: absolute;
+            display: inline-block;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: background-color 1s, transform 1s;
+        }
+
+        .mask {
+            clip: rect(0px, 98px, 98px, 49px);
+            // clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+
+            .fill {
+                clip: rect(0px, 49px, 98px, 0px);
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            // .fill { clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%); }
+        }
+    }
+
+    .center {
+        position: absolute;
+        display: inline-block;
+        top: 50%;
+        left: 50%;
+        border-radius: 50%;
+        background-color: $white;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+
+        span {
+            position: absolute;
+            display: inline-block;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            height: auto;
+            color: #161616;
+            font-weight: bold;
+            font-family: Montserrat;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
